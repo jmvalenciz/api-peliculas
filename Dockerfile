@@ -11,9 +11,9 @@ ENV FLASK_APP "entrypoint:app"
 ENV FLASK_ENV "development"
 ENV APP_SETTINGS_MODULE "config.default"
 
-RUN flask db init
-RUN flask db migrate
-RUN flask db upgrade
+RUN flask db init ||:
+RUN flask db migrate ||:
+RUN flask db upgrade ||:
 
 EXPOSE 5000
 
